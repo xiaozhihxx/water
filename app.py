@@ -78,7 +78,7 @@ def check():
         verify = request.args.get('verify')
         print(verify, 'get check')
         return verify
-    else if request.method == 'post':
+    elif request.method == 'post':
         raw_data = request.data
         print(raw_data, 'post check')
         return Response(status=200)
