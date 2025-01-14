@@ -74,15 +74,15 @@ def query():
 # 校验【有人】推送地址校验，返回
 @app.route('/check', methods=['get'])
 def check():
-    verify = request.json.get('verify')
+    verify = request.args.get('verify')
     print(verify, 'check response verify')
     return verify
 
 # 接收【有人】http数据的推送
 @app.route('/receive', methods=['post'])
 def receive():
-    data = request.json
-    print(data, 'receive data')
+    raw_data = request.data
+    print(raw_data, 'receive data')
     return ''
 
 
