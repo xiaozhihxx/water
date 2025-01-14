@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from test import con_my_sql
 
 app = Flask(__name__)
@@ -68,8 +68,8 @@ def query():
     # print(param, 'aaaa')
     code = 'select * from users'
     cursor_ans = con_my_sql(code)
-    # cursor_select = cursor_ans.fetchall()
-    return cursor_ans
+    cursor_select = cursor_ans.fetchall()
+    return jsonify(cursor_select)
 
 # 校验【有人】推送地址校验，返回
 @app.route('/check', methods=['get'])
