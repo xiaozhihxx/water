@@ -68,8 +68,8 @@ def query():
     # print(param, 'aaaa')
     code = 'select * from users'
     cursor_ans = con_my_sql(code)
-    cursor_select = cursor_ans.fetchall()
-    return cursor_select
+    # cursor_select = cursor_ans.fetchall()
+    return cursor_ans
 
 # 校验【有人】推送地址校验，返回
 @app.route('/check', methods=['get'])
@@ -90,7 +90,7 @@ def receive():
 if __name__ == '__main__':
     # 调试模式，html模板变动，页面也会跟着变。不需要重新启动服务
     # app.run(debug=True)
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
 
     # query
     username = 'xiaozhi'
