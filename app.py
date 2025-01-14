@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 from test import con_my_sql
 
 app = Flask(__name__)
@@ -72,11 +72,16 @@ def query():
     return jsonify(cursor_select)
 
 # 校验【有人】推送地址校验，返回
-@app.route('/check', methods=['get'])
+@app.route('/check', methods=['get', 'post'])
 def check():
-    verify = request.args.get('verify')
-    print(verify, 'check response verify')
-    return verify
+    if request.method == 'GET':
+        verify = request.args.get('verify')
+        print(verify, 'get check')
+        return verify
+    else if request.method == 'post':
+        raw_data = request.data
+        print(raw_data, 'post check')
+        return Response(status=200)
 
 # 接收【有人】http数据的推送
 @app.route('/receive', methods=['post'])
