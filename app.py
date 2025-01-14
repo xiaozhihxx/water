@@ -79,7 +79,7 @@ def check():
     return verify
 
 # 接收【有人】http数据的推送
-@app.route('receive', methods=['post'])
+@app.route('/receive', methods=['post'])
 def receive():
     data = request.json
     print(data, 'receive data')
