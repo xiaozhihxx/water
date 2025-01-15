@@ -11,8 +11,8 @@ def receiveRootGroup():
         verify = request.args.get('verify')
         print(verify, 'get receiveRootGroup')
         return verify
-    elif request.method == 'post':
-        raw_data = request.data
+    elif request.method == 'POST':
+        raw_data = request.json
         print(raw_data, 'post receiveRootGroup')
         return Response(status=200)
 
@@ -23,8 +23,8 @@ def receiveJueyu():
         verify = request.args.get('verify')
         print(verify, 'get receiveJueyu')
         return verify
-    elif request.method == 'post':
-        raw_data = request.data
+    elif request.method == 'POST':
+        raw_data = request.json
         print(raw_data, 'post receiveJueyu')
         return Response(status=200)
 
