@@ -39,11 +39,3 @@ if __name__ == '__main__':
     # 调试模式，html模板变动，页面也会跟着变。不需要重新启动服务
     # app.run(debug=True)
     app.run(host='0.0.0.0', port=5000)
-
-    # query
-    username = 'xiaozhi'
-    pwd = '123456'
-    code = 'select * from users where username=%s'
-    result = con_my_sql(code, (username))
-
-
