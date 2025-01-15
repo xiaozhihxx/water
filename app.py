@@ -2,13 +2,6 @@ from flask import Flask, render_template, request, jsonify, Response
 from test import con_my_sql
 
 app = Flask(__name__)
-    # 接受url ？后的参数
-    # param = request.args.get('param')
-    # print(param, 'aaaa')
-    code = 'select * from users'
-    cursor_ans = con_my_sql(code)
-    cursor_select = cursor_ans.fetchall()
-    return jsonify(cursor_select)
 
 # 【有人】推送数据
 # 根组织
